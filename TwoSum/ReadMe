@@ -9,7 +9,7 @@ Ex.):
 input=[2,7,11,15], target=9
 Expected Output=[0,1] (Because 2(n=0) + 7(n=1) = 9)
 
-Naive/Easy Method:
+Easy Method:
 Nested loop. Loops through each value in the array of integers.
 First loop gets the integer, X, being checked against all others, integers. 
 the nested loop, loops through all other integers, Y, and adds
@@ -17,5 +17,5 @@ the two integers X and Y together to make integer Z
 Z is then compared to the target integer, if it matches return the index
 values of X and Y. Otherwise continue looping.
 
-    Additions That can be made:
-        Ignore any values that are above the target. (Assuming all values >= 0)
+Other Methods: ?
+#Look into other methods.
