@@ -1,0 +1,21 @@
+Goal: Given an array of integers as input and a given an target integer
+return the indices of two integers that sum up to the target integer.
+
+* You may assume that each input has exactly one solution.
+* Elements of the array may only be used once.
+* The answer may be returned in any order.
+
+Ex.):
+input=[2,7,11,15], target=9
+Expected Output=[0,1] (Because 2(n=0) + 7(n=1) = 9)
+
+Naive/Easy Method:
+Nested loop. Loops through each value in the array of integers.
+First loop gets the integer, X, being checked against all others, integers. 
+the nested loop, loops through all other integers, Y, and adds
+the two integers X and Y together to make integer Z
+Z is then compared to the target integer, if it matches return the index
+values of X and Y. Otherwise continue looping.
+
+    Additions That can be made:
+        Ignore any values that are above the target. (Assuming all values >= 0)

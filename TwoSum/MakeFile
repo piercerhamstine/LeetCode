@@ -1,0 +1,3 @@
+twosum:
+	g++ -o twosum twosum.cpp
+	./twosum

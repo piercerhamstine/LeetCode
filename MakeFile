@@ -1,0 +1,5 @@
+CXXFLAGS=-std=c++17
+
+main:
+	g++ $(CXXFLAGS) -o $@ $@.cpp
+	echo $@
