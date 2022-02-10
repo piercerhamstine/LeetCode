@@ -16,24 +16,31 @@ int main()
     std::cout << "Enter Problem Name: ";
     std::cin >> dirName;
 
-    std::filesystem::create_directory("./"+dirName);
-
-    std::string path = "./"+dirName+"/";
-    std::fstream problemFile;
-    std::fstream makeFile;
-
-    std::cout << path+StrToLower(dirName)+".cpp";
-
-    problemFile.open(path+StrToLower(dirName)+".cpp", std::ios_base::out | std::ios_base::trunc);
-    problemFile.close();
-
-    makeFile.open(path+"MakeFile", std::ios_base::out | std::ios_base::trunc);
-    if(makeFile.is_open())
+    if(std::filesystem::is_directory("./"+dirName))
     {
-        makeFile << "CXXFLAGS=-std=c++17\n";
-        makeFile << "\n" << StrToLower(dirName) << ":\n";
-        makeFile << "\tg++ $(CXXFLAGS) -o $@ $@.cpp";
-        makeFile.close();
+        std::cout << "Directory already exists.";
     }
-    else{makeFile.close();}
+    else
+    {
+        std::filesystem::create_directory("./"+dirName);
+
+        std::string path = "./"+dirName+"/";
+        std::fstream problemFile;
+        std::fstream makeFile;
+
+        std::cout << path+StrToLower(dirName)+".cpp";
+
+        problemFile.open(path+StrToLower(dirName)+".cpp", std::ios_base::out | std::ios_base::trunc);
+        problemFile.close();
+
+        makeFile.open(path+"MakeFile", std::ios_base::out | std::ios_base::trunc);
+        if(makeFile.is_open())
+        {
+            makeFile << "CXXFLAGS=-std=c++17\n";
+            makeFile << "\n" << StrToLower(dirName) << ":\n";
+            makeFile << "\tg++ $(CXXFLAGS) -o $@ $@.cpp";
+            makeFile.close();
+        }
+        else{makeFile.close();}
+    }
 };
