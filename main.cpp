@@ -9,6 +9,8 @@ std::string StrToLower(std::string str)
     return str;
 }
 
+const std::string defaultCPP = "#include <iostream>\n\nint main()\n{\n\n}";
+
 int main()
 {
     std::string dirName;
@@ -31,6 +33,10 @@ int main()
         std::cout << path+StrToLower(dirName)+".cpp";
 
         problemFile.open(path+StrToLower(dirName)+".cpp", std::ios_base::out | std::ios_base::trunc);
+        if(problemFile.is_open())
+        {
+            problemFile << defaultCPP;
+        }
         problemFile.close();
 
         makeFile.open(path+"MakeFile", std::ios_base::out | std::ios_base::trunc);
@@ -41,6 +47,6 @@ int main()
             makeFile << "\tg++ $(CXXFLAGS) -o $@ $@.cpp";
             makeFile.close();
         }
-        else{makeFile.close();}
+        makeFile.close();
     }
 };
