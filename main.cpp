@@ -63,13 +63,8 @@ int main()
     else
     {
         std::filesystem::create_directory("./"+dirName);
-
         path = "./"+dirName+"/";
 
-        std::cout << path+StrToLower(dirName)+".cpp";
-
-
-
-
+        CreateCPP(problemFile, path, dirName);
     }
 };
