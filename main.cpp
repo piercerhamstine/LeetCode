@@ -62,6 +62,8 @@ int main()
     std::cout << "Enter Problem Name: ";
     std::cin >> dirName;
 
+    std::cout << "Enter Problem Description: ";
+
     // Check if directory exists
     if(std::filesystem::is_directory("./"+dirName))
     {
