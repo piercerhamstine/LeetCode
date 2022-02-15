@@ -36,7 +36,7 @@ void CreateMake(std::fstream& makeFile, const std::string& path, const std::stri
 
 void CreateReadME(std::fstream& readmeFile, const std::string& path, const std::string& dirName, std::string& desc)
 {
-    readmeFile.open(path+StrToLower(dirName)+".cpp", std::ios_base::out | std::ios_base::trunc);
+    readmeFile.open(path+"ReadMe", std::ios_base::out | std::ios_base::trunc);
     if(readmeFile.is_open())
     {
         readmeFile << desc;
