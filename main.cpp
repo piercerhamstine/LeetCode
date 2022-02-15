@@ -13,11 +13,19 @@ const std::string defaultCPP = "#include <iostream>\n\nint main()\n{\n\n}";
 
 int main()
 {
+    // Folder name
     std::string dirName;
+    // Folder Path
+    std::string path;
+    // CPP File
+    std::fstream problemFile;
+    // MakeFile
+    std::fstream makeFile;
 
     std::cout << "Enter Problem Name: ";
     std::cin >> dirName;
 
+    // Check
     if(std::filesystem::is_directory("./"+dirName))
     {
         std::cout << "Directory already exists.";
@@ -26,9 +34,7 @@ int main()
     {
         std::filesystem::create_directory("./"+dirName);
 
-        std::string path = "./"+dirName+"/";
-        std::fstream problemFile;
-        std::fstream makeFile;
+        path = "./"+dirName+"/";
 
         std::cout << path+StrToLower(dirName)+".cpp";
 
@@ -45,6 +51,12 @@ int main()
             makeFile << "CXXFLAGS=-std=c++17\n";
             makeFile << "\n" << StrToLower(dirName) << ":\n";
             makeFile << "\tg++ $(CXXFLAGS) -o $@ $@.cpp";
+
+            if(probDesc)
+            {
+
+            }
+
             makeFile.close();
         }
         makeFile.close();
