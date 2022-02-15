@@ -34,9 +34,14 @@ void CreateMake(std::fstream& makeFile, const std::string& path, const std::stri
     makeFile.close();
 }
 
-void CreateReadME()
+void CreateReadME(std::fstream& readmeFile, const std::string& path, const std::string& dirName, std::string& desc)
 {
-
+    readmeFile.open(path+StrToLower(dirName)+".cpp", std::ios_base::out | std::ios_base::trunc);
+    if(readmeFile.is_open())
+    {
+        readmeFile << desc;
+    }
+    readmeFile.close();
 }
 
 int main()
@@ -47,6 +52,8 @@ int main()
     std::string path;
     // Descrition of problem;
     std::string probDesc;
+    // README File
+    std::fstream readmeFile;
     // CPP File
     std::fstream problemFile;
     // MakeFile
@@ -66,5 +73,9 @@ int main()
         path = "./"+dirName+"/";
 
         CreateCPP(problemFile, path, dirName);
+
+        CreateMake(makeFile, path, dirName);
+
+        CreateReadME(readmeFile, path, dirName, probDesc);
     }
 };
