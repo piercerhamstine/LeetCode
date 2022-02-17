@@ -1,6 +1,7 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <string>
 
 std::string StrToLower(std::string str)
 {
@@ -61,8 +62,10 @@ int main()
 
     std::cout << "Enter Problem Name: ";
     std::cin >> dirName;
+    std::cin.ignore();
 
     std::cout << "Enter Problem Description: ";
+    std::getline(std::cin, probDesc, '\n');
 
     // Check if directory exists
     if(std::filesystem::is_directory("./"+dirName))
