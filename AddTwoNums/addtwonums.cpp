@@ -11,6 +11,27 @@
 
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
 {
+    // While either list has nodes, we continue looping.
+    while(l1->next || l2->next)
+    {
+        int addRes = 0;
+
+        if(l1)
+        {
+            addRes += l1->val;
+        }
+
+        if(l2)
+        {
+            addRes += l2->val;
+        }
+
+        // Check if we need to handle a carry-over.
+        if(addRes >= 10)
+        {
+            // Handle carry over.
+        }
+    }
 };
 
 int main()
