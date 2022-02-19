@@ -9,6 +9,7 @@
       ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+// My First-thought solution, not great but it works. Will research better solution and write those as well.
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
 {
     ListNode* res = new ListNode(0);
@@ -18,7 +19,7 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
     // While either list has nodes or we have a carry, we continue looping.
     while(l1 != nullptr || l2 != nullptr || carryOver > 0)
     {
-        ListNode* next = new ListNode(0);
+        ListNode* next = new ListNode();
         int addRes = carryOver;
         carryOver = 0;
 
@@ -49,7 +50,17 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
             temp->val = addRes;
         }
 
-        temp->next = next;
+        // Check if we need to add another node to the list.
+        if(l1 != nullptr || l2 != nullptr || carryOver > 0)
+        {
+            temp->next = next;
+        }
+        else
+        {
+            delete next;
+            temp->next = nullptr;
+        }
+
         temp = temp->next;
     }
 
@@ -58,10 +69,9 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
 
 int main()
 {
-    ListNode* l1 = new ListNode(2);
-    l1->next = new ListNode(4);
-    ListNode* l2 = new ListNode(5);
-    l2->next = new ListNode(6);
+    ListNode* l1 = new ListNode(9);
+    l1->next = new ListNode(9);
+    ListNode* l2 = new ListNode(9);
 
     ListNode* l3 = addTwoNumbers(l1, l2);
 
