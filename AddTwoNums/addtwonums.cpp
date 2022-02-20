@@ -67,6 +67,19 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
     return res;
 };
 
+// Refined solution after looking over better implementations.
+ListNode* addTwoNumbers2(ListNode* l1, ListNode* l2)
+{
+    ListNode* result = new ListNode();
+    ListNode* temp = result;
+    
+    int carry = 0;
+    while(l1 != nullptr || l2 != nullptr || carry != 0)
+    {
+        
+    }
+};
+
 int main()
 {
     ListNode* l1 = new ListNode(9);
