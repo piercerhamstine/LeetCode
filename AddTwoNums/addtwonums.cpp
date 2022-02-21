@@ -148,12 +148,12 @@ int main()
     ListNode* l2 = new ListNode(9);
 
     //ListNode* l3 = addTwoNumbers(l1, l2);
-    //ListNode* l3 = addtwo(l1, l2);
+    //ListNode* l3 = addTwoNumbers2(l1, l2);
     ListNode* l3 = addTwoNumbers3(l1, l2);
 
     while(l3 != nullptr)
     {
-        std::cout << l3 << std::endl;
+        std::cout << l3->val;
         
         l3 = l3->next;
     }
