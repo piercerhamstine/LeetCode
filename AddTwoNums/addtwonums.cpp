@@ -109,6 +109,38 @@ ListNode* addTwoNumbers2(ListNode* l1, ListNode* l2)
     return result;
 };
 
+ListNode* addTwoNumbers3(ListNode* l1, ListNode* l2)
+{
+    ListNode* result = new ListNode();
+    ListNode* temp = result;
+    int carryOver = 0;
+
+    while(l1 != nullptr || l2 != nullptr || carryOver != 0)
+    {
+        int sum = carryOver;
+
+        if(l1 != nullptr)
+        {
+            sum += l1->val;
+            l1 = l1->next;
+        }
+        if(l2 != nullptr)
+        {
+            sum += l2->val;
+            l2 = l2->next;
+        }
+
+        ListNode* next = new ListNode(sum%10);
+        carryOver = sum/10;
+        temp->next = next;
+        temp = temp->next;
+    };
+
+    temp = result->next;
+    delete result;
+    return temp;
+};
+
 int main()
 {
     ListNode* l1 = new ListNode(9);
@@ -117,7 +149,7 @@ int main()
 
     //ListNode* l3 = addTwoNumbers(l1, l2);
     //ListNode* l3 = addtwo(l1, l2);
-    ListNode* l3 = addTwoNumbers2(l1, l2);
+    ListNode* l3 = addTwoNumbers3(l1, l2);
 
     while(l3 != nullptr)
     {
