@@ -109,6 +109,7 @@ ListNode* addTwoNumbers2(ListNode* l1, ListNode* l2)
     return result;
 };
 
+// Remove if-else for handlding excess node.
 ListNode* addTwoNumbers3(ListNode* l1, ListNode* l2)
 {
     ListNode* result = new ListNode();

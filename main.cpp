@@ -29,7 +29,7 @@ void CreateMake(std::fstream& makeFile, const std::string& path, const std::stri
     {
         makeFile << "CXXFLAGS=-std=c++17\n";
         makeFile << "\n" << StrToLower(dirName) << ":\n";
-        makeFile << "\tg++ $(CXXFLAGS) -o $@ $@.cpp";
+        makeFile << "\tg++ -o $@ $@.cpp\n\t./$@";
         makeFile.close();
     }
     makeFile.close();
