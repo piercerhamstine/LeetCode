@@ -76,8 +76,37 @@ ListNode* addTwoNumbers2(ListNode* l1, ListNode* l2)
     int carry = 0;
     while(l1 != nullptr || l2 != nullptr || carry != 0)
     {
+        ListNode* next = new ListNode();
+        int sum = carry;
+
+        if(l1 != nullptr)
+        {
+            sum += l1->val;
+            l1 = l1->next;
+        };
+        if(l2 != nullptr)
+        {
+            sum += l2->val;
+            l2 = l2->next;
+        };
         
+        carry = sum/10;
+        temp->val = sum%10;
+
+        if(l1 != nullptr || l2 != nullptr || carry != 0)
+        {
+            temp->next = next;
+        }
+        else
+        {
+            delete next;
+            temp->next = nullptr;
+        }
+
+        temp = temp->next;
     }
+
+    return result;
 };
 
 int main()
@@ -86,12 +115,14 @@ int main()
     l1->next = new ListNode(9);
     ListNode* l2 = new ListNode(9);
 
-    ListNode* l3 = addTwoNumbers(l1, l2);
+    //ListNode* l3 = addTwoNumbers(l1, l2);
+    //ListNode* l3 = addtwo(l1, l2);
+    ListNode* l3 = addTwoNumbers2(l1, l2);
 
     while(l3 != nullptr)
     {
-        std::cout << l3->val;
-
+        std::cout << l3 << std::endl;
+        
         l3 = l3->next;
     }
 
