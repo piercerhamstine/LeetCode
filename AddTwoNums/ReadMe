@@ -3,3 +3,11 @@ The digits are stored in reverse order, and each of their nodes contains a singl
 Add the two numbers and return the sum as a linked list.
 
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+--------------------------------------------------------------------------------------------
+
+First solution that comes to mind:
+Create a new node for the result list.
+Loop through the two lists, each loop look at the two node values, add them together and store them in the new result node.
+If the addition results in a number great than or equal to ten, the carry must be handled.
+I can modulo the result of the addition, the remainder will be stored in the current node.
+    I will also need to subtract 10 from this value until I have a number that is <= 9 and take note of how many tens need to be carried over.
