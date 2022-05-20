@@ -42,13 +42,9 @@ int LengthLongestSubstring(std::string input)
                 {
                    break;
                 };
-
-                std::cout << charArr[j];
             }
             subStrings.push_back(std::string(uniqueChar.begin(), uniqueChar.end()));
             uniqueChar.clear();
-
-            std::cout << std::endl;
         };
 
         longestsslength = subStrings[0].length();
@@ -58,8 +54,6 @@ int LengthLongestSubstring(std::string input)
             {
                 longestsslength = subStrings[i].length();
             }
-
-            //std::cout << subStrings[i] << std::endl;
         };
 
         return longestsslength;
