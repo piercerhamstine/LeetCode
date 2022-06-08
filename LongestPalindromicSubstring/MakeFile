@@ -1,0 +1,5 @@
+CXXFLAGS=-std=c++17
+
+longestpalindromicsubstring:
+	g++ -o $@ $@.cpp
+	./$@
