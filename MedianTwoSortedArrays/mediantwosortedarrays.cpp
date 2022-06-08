@@ -8,7 +8,7 @@ Median of even set:
 m = (x((n/2) - 1) + x(n/2) / 2)
 
 Median of odd set:
-m = x(n/2 - 1) / 2
+m = x(n/2 - 1)
 */
 
 double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2)
@@ -43,7 +43,11 @@ double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2)
     // Odd
     else
     {
+        int ndx = ((size+1)/2) - 1;
 
+        double median = merged[ndx];
+
+        return median;
     };
 
     return 0;
@@ -51,16 +55,8 @@ double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2)
 
 int main()
 {
-    std::vector<int> v1 = {1, 3};
-    std::vector<int> v2 = {2, 10};
+    std::vector<int> v1 = {1, 2, 3};
+    std::vector<int> v2 = {4, 5, 6};
 
-    std::vector<int> v3;
-    v3.resize(v1.size() + v2.size());
-
-    std::merge(v2.begin(), v2.end(), v1.begin(), v1.end(), v3.begin());
-
-    for(std::size_t i = 0; i < v3.size(); ++i)
-    {
-        std::cout << v3[i] << std::endl;
-    };
+    std::cout << "Median: " << findMedianSortedArrays(v1,v2) << std::endl;
 }   
